@@ -37,7 +37,7 @@ sudo apt install python3-geometry-msgs -y
 
 - [vision_msgs](http://wiki.ros.org/vision_msgs)
 ```shell
-cd yolov8_ws/src/yolov8_ros
+cd yolov8_ws/src/YOLOv8_ros2
 git clone https://github.com/ros-perception/vision_msgs.git
 ```
 
