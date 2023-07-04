@@ -34,6 +34,7 @@ from sensor_msgs.msg import Image
 from vision_msgs.msg import Detection2D
 from vision_msgs.msg import ObjectHypothesisWithPose
 from vision_msgs.msg import Detection2DArray
+from geometry_msgs.msg import Point32
 from std_srvs.srv import SetBool
 
 
@@ -71,6 +72,9 @@ class Yolov8Node(Node):
         self.yolo.to(device)
 
         # topics
+        ####################################
+        self._cpub = self.create_publisher(Point32, "center", 10)
+        ####################################
         self._pub = self.create_publisher(Detection2DArray, "detections", 10)
         self._dbg_pub = self.create_publisher(Image, "result", 10)
         self._sub = self.create_subscription(
@@ -131,6 +135,7 @@ class Yolov8Node(Node):
             # create detections msg
             detections_msg = Detection2DArray()
             detections_msg.header = msg.header
+            
 
             for box_data in results.boxes:
 
@@ -146,7 +151,7 @@ class Yolov8Node(Node):
                 detection.bbox.center.y = float(box[1])
                 detection.bbox.size_x = float(box[2])
                 detection.bbox.size_y = float(box[3])
-
+                
                 # get track id
                 track_id = ""
                 if box_data.is_track:
@@ -158,6 +163,13 @@ class Yolov8Node(Node):
                 hypothesis.id = label
                 hypothesis.score = score
                 detection.results.append(hypothesis)
+                
+                ####################################
+                # create center pose
+                cpose_msg = Point32()
+                cpose_msg.x = detection.bbox.center.x
+                cpose_msg.y = detection.bbox.center.y
+                ####################################
 
                 # draw boxes for debug
                 if label not in self._class_to_color:
@@ -186,6 +198,9 @@ class Yolov8Node(Node):
             self._pub.publish(detections_msg)
             self._dbg_pub.publish(self.cv_bridge.cv2_to_imgmsg(cv_image,
                                                                encoding=msg.encoding))
+            ############################
+            self._cpub.publish(cpose_msg)
+            ############################
 	    
             cv2.imshow('YOLOv8', cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
             cv2.waitKey(10)
