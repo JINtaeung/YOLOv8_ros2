@@ -72,9 +72,7 @@ class Yolov8Node(Node):
         self.yolo.to(device)
 
         # topics
-        ####################################
         self._cpub = self.create_publisher(Point32, "center", 10)
-        ####################################
         self._pub = self.create_publisher(Detection2DArray, "detections", 10)
         self._dbg_pub = self.create_publisher(Image, "result", 10)
         self._sub = self.create_subscription(
@@ -136,6 +134,9 @@ class Yolov8Node(Node):
             detections_msg = Detection2DArray()
             detections_msg.header = msg.header
             
+            # create center pose msg
+            cpose_msg = Point32()
+
 
             for box_data in results.boxes:
 
@@ -164,12 +165,9 @@ class Yolov8Node(Node):
                 hypothesis.score = score
                 detection.results.append(hypothesis)
                 
-                ####################################
                 # create center pose
-                cpose_msg = Point32()
-                cpose_msg.x = detection.bbox.center.x
-                cpose_msg.y = detection.bbox.center.y
-                ####################################
+                cpose_msg.x = float(box[0])
+                cpose_msg.y = float(box[1])
 
                 # draw boxes for debug
                 if label not in self._class_to_color:
@@ -198,9 +196,8 @@ class Yolov8Node(Node):
             self._pub.publish(detections_msg)
             self._dbg_pub.publish(self.cv_bridge.cv2_to_imgmsg(cv_image,
                                                                encoding=msg.encoding))
-            ############################
             self._cpub.publish(cpose_msg)
-            ############################
+
 	    
             cv2.imshow('YOLOv8', cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
             cv2.waitKey(10)
