@@ -53,7 +53,7 @@ Build
 cd ~/yolov8_ws
 rosdep install --from-paths src --ignore-src -y -r
 colcon build
-echo "source ~/yolov8_ws/devel/setup.bash" >> ~/.bashrc
+echo "source ~/yolov8_ws/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
