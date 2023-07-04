@@ -44,7 +44,7 @@ git clone https://github.com/ros-perception/vision_msgs.git
 Download usb_cam packages are option:
 - [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
 ```shell
-cd yolov8_ws/src/yolov8_ros
+cd yolov8_ws/src/YOLOv8_ros2
 git clone https://github.com/ros-drivers/usb_cam.git
 ```
 
