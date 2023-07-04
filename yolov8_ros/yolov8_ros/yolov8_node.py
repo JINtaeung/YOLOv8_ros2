@@ -186,6 +186,9 @@ class Yolov8Node(Node):
             self._pub.publish(detections_msg)
             self._dbg_pub.publish(self.cv_bridge.cv2_to_imgmsg(cv_image,
                                                                encoding=msg.encoding))
+            
+            cv2.imshow('result', cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+            cv2.waitKey(10)
 
 
 def main():
