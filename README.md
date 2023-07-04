@@ -1,6 +1,6 @@
 <div align="center">
 
-# YOLOv7 with ROS1
+# YOLOv8 with ROS2
 
 ![Ubuntu 20.04](https://img.shields.io/badge/Ubuntu-20.04-blue?style=flat-square&logo=Ubuntu&logoColor=FFFFFF)
 ![Ros foxy](https://img.shields.io/badge/Ros-foxy-blue?style=flat-square&logo=ROS)
