@@ -29,6 +29,8 @@ pip3 install -r yolov8_ros/requirements.txt
 ```
 
 Following ROS packages are required:
+- [geometry_msgs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Point32.html)
+
 - [vision_msgs](http://wiki.ros.org/vision_msgs)
 ```shell
 cd yolov8_ws/src/yolov8_ros
@@ -79,6 +81,5 @@ ros2 launch yolov8_bringup yolov8.launch.py
 ## :satellite: Output Rostopic
 - [yolov8_bringup/yolov8.launch.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py) input_image_topic = "`/image_raw`" ➡️ subscribe topic name
 - [yolov8_ros/yolov8_node.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_ros/yolov8_ros/yolov8_node.py) topics:self._dbg_pub=self.create_publisher = "`result`" ➡️ publish topic name
-- Center pose using the [vision_msgs/Detection2DArray](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2DArray.html) message type.
 - Detection using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
-
+- Center pose using the [geometry_msgs/Point32](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Point32.html)
