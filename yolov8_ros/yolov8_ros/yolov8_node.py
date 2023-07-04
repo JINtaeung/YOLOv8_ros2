@@ -72,7 +72,7 @@ class Yolov8Node(Node):
 
         # topics
         self._pub = self.create_publisher(Detection2DArray, "detections", 10)
-        self._dbg_pub = self.create_publisher(Image, "dbg_image", 10)
+        self._dbg_pub = self.create_publisher(Image, "result", 10)
         self._sub = self.create_subscription(
             Image, "image_raw", self.image_cb,
             qos_profile_sensor_data
@@ -186,10 +186,9 @@ class Yolov8Node(Node):
             self._pub.publish(detections_msg)
             self._dbg_pub.publish(self.cv_bridge.cv2_to_imgmsg(cv_image,
                                                                encoding=msg.encoding))
-            
-            cv2.imshow('result', cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+	    
+            cv2.imshow('YOLOv8', cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
             cv2.waitKey(10)
-
 
 def main():
     rclpy.init()

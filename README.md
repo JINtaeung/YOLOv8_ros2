@@ -1,6 +1,6 @@
 <div align="center">
 
-# YOLOv8 with ROS2
+# YOLOv7 with ROS1
 
 ![Ubuntu 20.04](https://img.shields.io/badge/Ubuntu-20.04-blue?style=flat-square&logo=Ubuntu&logoColor=FFFFFF)
 ![Ros foxy](https://img.shields.io/badge/Ros-foxy-blue?style=flat-square&logo=ROS)
@@ -21,29 +21,14 @@
 
 ## :rocket: install
 
-Clone the repo into your catkin workspace and build the package:
-```shell
-mkdir -p yolov8_ws/src
-git clone https://github.com/JINtaeung/YOLOv8_ros2
-pip3 install -r yolov8_ros/requirements.txt
-```
-
 Following ROS packages are required:
 - [vision_msgs](http://wiki.ros.org/vision_msgs)
-```shell
-cd yolov8_ws/src/yolov8_ros
-git clone https://github.com/ros-perception/vision_msgs.git
-```
 
-Download usb_cam packages are option:
-- [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
+clone the repo into your catkin workspace and build the package:
 ```shell
-cd yolov8_ws/src/yolov8_ros
-git clone https://github.com/ros-drivers/usb_cam.git
-```
-
-Build
-```shell
+mkdir -p yolov8_ws/src
+git clone 수정수정수정수정수정수정
+pip3 install -r yolov8_ros/requirements.txt
 cd ~/yolov8_ws
 rosdep install --from-paths src --ignore-src -y -r
 colcon build
@@ -56,7 +41,7 @@ Before you launch the node, adjust the parameters in the [launch file](launch/yo
 For example, you need to set the path to your YOLOv7 weights and the image topic to which this node should listen to.   
 The launch file also contains a description for each parameter.   
 
-- [yolov8_ros/yolov8_node.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_ros/yolov8_ros/yolov8_node.py) for developer
+- [yolov8_ros/yolov8_node.py]() for developer
 1. params ="model" value="사용할 가중치 파일"
 2. params ="device" value="cuda:0" or "cpu"
 3. topics ="img_topic" value="subscribe할 rostopic 경로"
@@ -76,9 +61,13 @@ ros2 launch usb_cam demo_launch.py
 ros2 launch yolov8_bringup yolov8.launch.py
 ```
 
-## :satellite: Output Rostopic
-- [yolov8_bringup/yolov8.launch.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py) input_image_topic = "`/image_raw`" ➡️ subscribe topic name
-- [yolov8_ros/yolov8_node.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_ros/yolov8_ros/yolov8_node.py) topics:self._dbg_pub=self.create_publisher = "`result`" ➡️ publish topic name
-- Center pose using the [vision_msgs/Detection2DArray](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2DArray.html) message type.
-- Detection using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
+## :movie_camera: Visualization
+```shell
+수정수정수정수정수정수정수정수정
+```
+rviz 좌측 하단 add - by topic - /yolov7 - visualization - image
+
+## :satellite: Outpit Rostopic
+- 수정수정수정수정수정수정수정수정
+- using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
 
