@@ -1,0 +1,73 @@
+<div align="center">
+
+# YOLOv7 with ROS1
+
+![Ubuntu 20.04](https://img.shields.io/badge/Ubuntu-20.04-blue?style=flat-square&logo=Ubuntu&logoColor=FFFFFF)
+![Ros foxy](https://img.shields.io/badge/Ros-foxy-blue?style=flat-square&logo=ROS)
+![Python 3.8.10](https://img.shields.io/badge/Python-3.8.10-blue?style=flat-square&logo=Python&logoColor=FFFFFF)
+
+</div>
+
+<font size=2>
+
+> **Note** <br>
+> This project if forked from <br>
+> [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics) <br>
+> [mgonzs13/yolov8_ros](https://github.com/mgonzs13/yolov8_ros)
+
+</font>
+
+<font size=2>
+
+## :rocket: install
+
+Following ROS packages are required:
+- [vision_msgs](http://wiki.ros.org/vision_msgs)
+
+clone the repo into your catkin workspace and build the package:
+```shell
+mkdir -p yolov8_ws/src
+git clone 수정수정수정수정수정수정
+pip3 install -r yolov8_ros/requirements.txt
+cd ~/yolov8_ws
+rosdep install --from-paths src --ignore-src -y -r
+colcon build
+echo "source ~/yolov8_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+## :clipboard: Usage
+Before you launch the node, adjust the parameters in the [launch file](launch/yolov7.launch).   
+For example, you need to set the path to your YOLOv7 weights and the image topic to which this node should listen to.   
+The launch file also contains a description for each parameter.   
+
+- [yolov8_ros/yolov8_node.py]() for developer
+1. params ="model" value="사용할 가중치 파일"
+2. params ="device" value="cuda:0" or "cpu"
+3. topics ="img_topic" value="subscribe할 rostopic 경로"
+- 값 변경 후 다시 build
+```shell
+cd ~/yolov8_ws
+colcon build
+```
+
+## :white_check_mark: Test
+- usb_cam 실행
+```shell
+ros2 launch usb_cam demo_launch.py
+```
+- YOLOv8 실행
+```shell
+ros2 launch yolov8_bringup yolov8.launch.py
+```
+
+## :movie_camera: Visualization
+```shell
+수정수정수정수정수정수정수정수정
+```
+rviz 좌측 하단 add - by topic - /yolov7 - visualization - image
+
+## :satellite: Outpit Rostopic
+- 수정수정수정수정수정수정수정수정
+- using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
+
