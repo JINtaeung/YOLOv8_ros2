@@ -21,14 +21,29 @@
 
 ## :rocket: install
 
-Following ROS packages are required:
-- [vision_msgs](http://wiki.ros.org/vision_msgs)
-
-clone the repo into your catkin workspace and build the package:
+Clone the repo into your catkin workspace and build the package:
 ```shell
 mkdir -p yolov8_ws/src
-git clone 수정수정수정수정수정수정
+git clone https://github.com/JINtaeung/YOLOv8_ros2
 pip3 install -r yolov8_ros/requirements.txt
+```
+
+Following ROS packages are required:
+- [vision_msgs](http://wiki.ros.org/vision_msgs)
+```shell
+cd yolov8_ws/src/yolov8_ros
+git clone https://github.com/ros-perception/vision_msgs.git
+```
+
+Download usb_cam packages are option:
+- [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
+```shell
+cd yolov8_ws/src/yolov8_ros
+git clone https://github.com/ros-drivers/usb_cam.git
+```
+
+Build
+```shell
 cd ~/yolov8_ws
 rosdep install --from-paths src --ignore-src -y -r
 colcon build
@@ -63,9 +78,9 @@ ros2 launch yolov8_bringup yolov8.launch.py
 
 ## :movie_camera: Visualization
 ```shell
-수정수정수정수정수정수정수정수정
+rviz2
 ```
-rviz 좌측 하단 add - by topic - /yolov7 - visualization - image
+rviz2 좌측 하단 add - by topic - /yolo - dbg_image - image
 
 ## :satellite: Outpit Rostopic
 - 수정수정수정수정수정수정수정수정
