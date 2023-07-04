@@ -26,7 +26,7 @@ Clone the repo into your catkin workspace and build the package:
 mkdir -p yolov8_ws/src
 cd yolov8_ws/src
 git clone https://github.com/JINtaeung/YOLOv8_ros2
-pip3 install -r yolov8_ros/requirements.txt
+pip3 install -r YOLO8_ros2/requirements.txt
 ```
 
 Following ROS packages are required:
