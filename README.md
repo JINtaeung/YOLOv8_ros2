@@ -76,12 +76,6 @@ ros2 launch usb_cam demo_launch.py
 ros2 launch yolov8_bringup yolov8.launch.py
 ```
 
-## :movie_camera: Visualization
-```shell
-rviz2
-```
-rviz2 좌측 하단 add - by topic - /yolo - dbg_image - image
-
 ## :satellite: Outpit Rostopic
 - 수정수정수정수정수정수정수정수정
 - using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
