@@ -45,7 +45,7 @@ Download usb_cam packages are option:
 - [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
 ```shell
 cd yolov8_ws/src/YOLOv8_ros2
-git clone https://github.com/ros-drivers/usb_cam.git
+git clone -b ros2 --single-branch https://github.com/ros-drivers/usb_cam.git
 ```
 
 Build
