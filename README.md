@@ -32,7 +32,7 @@ pip3 install -r yolov8_ros/requirements.txt
 Following ROS packages are required:
 - [geometry_msgs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Point32.html)
 ```shell
-sudo apt-get install -y python3-geometry-msgs
+sudo apt install python3-geometry-msgs -y
 ```
 
 - [vision_msgs](http://wiki.ros.org/vision_msgs)
