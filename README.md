@@ -50,7 +50,7 @@ For example, you need to set the path to your YOLOv7 weights and the image topic
 The launch file also contains a description for each parameter.   
 
 - [launch/yolov7.launch](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py) for developer
-1. params ="model" value="사용할 가중치 파일"
+1. params ="model" value="사용할 가중치 파일(heavy: yolov8n.pt < yolov8n.pt < yolov8m.pt < yolov8l.pt < yolov8x.pt)"
 2. params ="device" value="cuda:0" or "cpu"
 3. topics ="img_topic" value="subscribe할 rostopic 경로"
 - 값 변경 후 다시 build
