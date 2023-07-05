@@ -43,6 +43,10 @@ echo "source ~/YOLOv8_ros2/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+- You can ignore this warning
+![Screenshot from 2023-07-05 10-47-17](https://github.com/JINtaeung/YOLOv8_ros2/assets/123755373/7374f468-38c7-4fc3-9868-466f074c4049)
+
+
 ## :clipboard: Usage
 Before you launch the node, adjust the parameters in the [launch file](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py).
 
