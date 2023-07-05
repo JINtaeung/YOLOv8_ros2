@@ -20,40 +20,26 @@
 <font size=2>
 
 ## :rocket: install
+Following ROS packages are required:
+- [geometry_msgs](https://docs.ros2.org/latest/api/geometry_msgs/index-msg.html)
+
+- [vision_msgs](https://github.com/ros-perception/vision_msgs)
+
+Following usb_cam packages are option for test:
+- [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
 
 Clone the repo into your catkin workspace and build the package:
 ```shell
-mkdir -p yolov8_ws/src
-cd yolov8_ws/src
 git clone https://github.com/JINtaeung/YOLOv8_ros2
 pip3 install -r YOLOv8_ros2/requirements.txt
 ```
 
-Following ROS packages are required:
-- [geometry_msgs](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Point32.html)
-```shell
-sudo apt install python3-geometry-msgs -y
-```
-
-- [vision_msgs](http://wiki.ros.org/vision_msgs)
-```shell
-cd yolov8_ws/src/
-git clone https://github.com/ros-perception/vision_msgs.git
-```
-
-Download usb_cam packages are option:
-- [usb_cam](https://github.com/ros-drivers/usb_cam/tree/ros2)
-```shell
-cd yolov8_ws/src/
-git clone -b ros2 --single-branch https://github.com/ros-drivers/usb_cam.git
-```
-
 Build
 ```shell
-cd ~/yolov8_ws
+cd YOLOv8_ros2
 rosdep install --from-paths src --ignore-src -y -r
 colcon build
-echo "source ~/yolov8_ws/install/setup.bash" >> ~/.bashrc
+echo "source ~/YOLOv8_ros2/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -69,7 +55,7 @@ The launch file also contains a description for each parameter.
 3. topics ="img_topic" value="subscribe할 rostopic 경로"
 - 값 변경 후 다시 build
 ```shell
-cd ~/yolov8_ws
+cd ~/YOLOv8_ros2
 colcon build
 ```
 
@@ -91,4 +77,4 @@ ros2 topic echo /yolo/center
 - [yolov8_bringup/yolov8.launch.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py) input_image_topic = "`/image_raw`" ➡️ subscribe topic name
 - [yolov8_ros/yolov8_node.py](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_ros/yolov8_ros/yolov8_node.py) topics:self._dbg_pub=self.create_publisher = "`result`" ➡️ publish topic name
 - Detection using the [vision_msgs/Detection2D](https://docs.ros.org/en/api/vision_msgs/html/msg/Detection2D.html) message type.
-- Center pose using the [geometry_msgs/Point32](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Point32.html) message type.
+- Center pose using the [geometry_msgs/Point32](https://docs.ros2.org/latest/api/geometry_msgs/msg/Point32.html) message type.
