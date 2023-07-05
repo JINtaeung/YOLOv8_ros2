@@ -58,7 +58,7 @@ source ~/.bashrc
 ```
 
 ## :clipboard: Usage
-Before you launch the node, adjust the parameters in the [launch file](launch/yolov7.launch).   
+Before you launch the node, adjust the parameters in the [launch file](launch/yolov7.launch) and [node file](yolov8_ros/yolov8_node.py).   
 For example, you need to set the path to your YOLOv7 weights and the image topic to which this node should listen to.   
 The launch file also contains a description for each parameter.   
 
