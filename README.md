@@ -58,11 +58,12 @@ source ~/.bashrc
 ```
 
 ## :clipboard: Usage
-Before you launch the node, adjust the parameters in the [launch file](launch/yolov7.launch).
+Before you launch the node, adjust the parameters in the [launch file](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py).
+
 For example, you need to set the path to your YOLOv7 weights and the image topic to which this node should listen to.   
 The launch file also contains a description for each parameter.   
 
-- [launch/yolov7.launch](launch/yolov7.launch) for developer
+- [launch/yolov7.launch](https://github.com/JINtaeung/YOLOv8_ros2/blob/main/yolov8_bringup/launch/yolov8.launch.py) for developer
 1. params ="model" value="사용할 가중치 파일"
 2. params ="device" value="cuda:0" or "cpu"
 3. topics ="img_topic" value="subscribe할 rostopic 경로"
